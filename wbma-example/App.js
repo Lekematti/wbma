@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import List from './components/List';
 import {Platform, SafeAreaView} from 'react-native';
 import ListItem from './components/ListItem';
+import {StyleSheet} from 'react-native';
 
 
 
