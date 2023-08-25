@@ -1,19 +1,14 @@
-import {TouchableOpacity, StyleSheet, View, Text, Image,} from 'react-native';
+import {TouchableOpacity, StyleSheet, Text, Image,} from 'react-native';
 import PropTypes from 'prop-types';
-import List from './List';
-const ListItem = () => {
+const ListItem = (props) => {
   return (
     <TouchableOpacity style={styles.container}>
-      <View style={styles.container}>
         <Image
           style={styles.container}
-          source={{uri: List.item.thumbnails.w160}}
+          source={{uri: props.singleMedia.thumbnails.w160}}
         />
-      </View>
-      <View style={styles.container}>
-        <Text style={styles.container}>{List.item.title}</Text>
-        <Text>{List.item.description}</Text>
-      </View>
+        <Text>{props.singleMedia.title}</Text>
+        <Text>{props.singleMedia.description}</Text>
     </TouchableOpacity>
   );
 }
@@ -31,4 +26,4 @@ ListItem.propTypes = {
   singleMedia: PropTypes.object,
 };
 
-export default ListItem
+export default ListItem;
