@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import List from './components/List';
-import {SafeAreaView} from 'react-native';
+import {Platform, SafeAreaView} from 'react-native';
 import ListItem from './components/ListItem';
 
 
@@ -8,12 +8,22 @@ import ListItem from './components/ListItem';
 const App = () => {
   return (
     <>
-      <SafeAreaView style={ListItem.styles.container}>
+      <SafeAreaView style={ListItem}>
         <List/>
       </SafeAreaView>
       <StatusBar style="auto"/>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: Platform.OS === 'android' ? 30 : 0,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default App;
