@@ -15,15 +15,6 @@ const ListItem = ({singleMedia}) => {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 ListItem.propTypes = {
   singleMedia: PropTypes.object,
 };
