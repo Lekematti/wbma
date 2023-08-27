@@ -7,11 +7,9 @@ const ListItem = ({singleMedia}) => {
     }}>
       <View style={styles.container}>
         <Image
-          style={{width: 100, height: 100}}
+          style={{borderRadius: 10,width: 100, height: 100}}
           source={{uri: singleMedia.thumbnails.w160}}
         />
-      </View>
-      <View style={styles.container}>
         <Text style={styles.text}>{singleMedia.title}</Text>
         <Text style={styles.text}>{singleMedia.description}</Text>
       </View>
@@ -21,14 +19,23 @@ const ListItem = ({singleMedia}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#000',
+    flexWrap: 'wrap',
+    flexGrow: 1,
+    marginTop: 30,
+    padding: 10,
+    backgroundColor: '#fff',
     alignItems: 'center',
+    alignContent: 'center',
     justifyContent: 'center',
   },
   text: {
-    flex: 1,
-    backgroundColor: '#fff',
+    flexWrap: 'wrap',
+    flexGrow: 1,
+    margin: 5,
+    padding: 5,
+    borderRadius: 10,
+    backgroundColor: '#000',
+    color: '#4CB7FF',
     alignItems: 'center',
     justifyContent: 'center',
   },
