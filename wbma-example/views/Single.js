@@ -12,10 +12,12 @@ const Single = ({route ,navigation}) => {
         <View style={styles.container}>
           <Image
             style={{width: 100, height: 100, marginBottom: 5}}
-            source={{uri: mediaUrl + singleMedia.thumbnails.w160}}
+            source={{uri: mediaUrl + singleMedia.filename}}
           />
           <Text style={styles.text}>{singleMedia.title}</Text>
           <Text style={styles.text}>{singleMedia.description}</Text>
+          <Text style={styles.text}>{singleMedia.user_id}</Text>
+          <Text style={styles.text}>{singleMedia.time_added}</Text>
         </View>
         <StatusBar style="auto"/>
         </SafeAreaView>
