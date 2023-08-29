@@ -1,16 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import List from './components/List';
-import {SafeAreaView} from 'react-native';
-import ListItem from './components/ListItem';
-
-
+import Home from './views/Home';
+import Navigator from './navigators/navigator';
 
 const App = () => {
   return (
     <>
-      <SafeAreaView style={ListItem}>
-        <List/>
-      </SafeAreaView>
+      <Navigator/>
       <StatusBar style="auto"/>
     </>
   );
