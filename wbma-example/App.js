@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import Home from './views/Home';
 import Navigator from './navigators/navigator';
+import {MainProvider} from './contexts/MainContext';
 
 const App = () => {
   return (
-    <>
-      <Navigator/>
-      <StatusBar style="auto"/>
-    </>
+    <MainProvider>
+      <Navigator />
+      <StatusBar style="auto" />
+    </MainProvider>
   );
 };
 export default App;
