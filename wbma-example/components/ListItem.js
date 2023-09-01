@@ -1,14 +1,19 @@
-import {TouchableOpacity, StyleSheet, Text, Image, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import PropTypes from 'prop-types';
-const ListItem = ({singleMedia}) => {
+import {mediaUrl} from '../utils/app-config';
+
+const ListItem = ({singleMedia, navigation}) => {
   return (
-    <TouchableOpacity onPress={() => {
-      console.log('touched', singleMedia.title)
-    }}>
+    <TouchableOpacity
+      onPress={() => {
+        console.log('touched!', singleMedia.title);
+        navigation.navigate('Single', singleMedia);
+      }}
+    >
       <View style={styles.container}>
         <Image
-          style={{borderRadius: 10,width: 100, height: 100}}
-          source={{uri: singleMedia.thumbnails.w160}}
+          style={{width: 100, height: 100, borderRadius: 20}}
+          source={{uri: mediaUrl + singleMedia.thumbnails.w160}}
         />
         <Text style={styles.text}>{singleMedia.title}</Text>
         <Text style={styles.text}>{singleMedia.description}</Text>
@@ -19,11 +24,12 @@ const ListItem = ({singleMedia}) => {
 
 const styles = StyleSheet.create({
   container: {
+    borderRadius: 20,
     flexWrap: 'wrap',
     flexGrow: 1,
     marginTop: 30,
     padding: 10,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     alignItems: 'center',
     alignContent: 'center',
     justifyContent: 'center',
@@ -34,16 +40,16 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 5,
     borderRadius: 10,
-    backgroundColor: '#000',
-    color: '#4CB7FF',
+    backgroundColor: '#a5a5a5',
+    color: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
 });
 
-
 ListItem.propTypes = {
   singleMedia: PropTypes.object,
+  navigation: PropTypes.object,
 };
 
 export default ListItem;
