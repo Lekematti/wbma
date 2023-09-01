@@ -30,8 +30,8 @@ const Login = ({navigation}) => {
     console.log('Login button pressed');
     try {
       const loginResponse = await postLogin({
-        username: 'masa',
-        password: 'examplepass',
+        username: 'leke',
+        password: 'example',
       });
       console.log('login response', loginResponse);
       // TODO: fix dofetch() to display errors from API (e.g. when bad user/pw)
