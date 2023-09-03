@@ -45,7 +45,6 @@ const useAuthentication = () => {
       console.error('postLogin error', error);
     }
   };
-
   return {postLogin};
 };
 
@@ -68,8 +67,7 @@ const useUser = () => {
     };
     return await doFetch(apiUrl + 'users', options);
   };
-
-  return {getUserByToken, postUser};
+  return {getUserByToken, postUser };
 };
 
 export {useMedia, useAuthentication, useUser};
