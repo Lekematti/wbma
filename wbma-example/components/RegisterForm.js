@@ -4,7 +4,6 @@ import {useUser} from '../hooks/ApiHooks';
 
 const RegisterForm = () => {
   const {postUser} = useUser();
-
   const {
     control,
     handleSubmit,
