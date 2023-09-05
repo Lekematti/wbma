@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity, KeyboardAvoidingView, Platform, Keyboard} from 'react-native';
 import PropTypes from 'prop-types';
 import {MainContext} from '../contexts/MainContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -17,6 +17,7 @@ const Login = ({navigation}) => {
       const token = await AsyncStorage.getItem('userToken');
       // hardcoded token validation
       const userData = await getUserByToken(token);
+      console.log('token', token);
       console.log('userdata', userData);
       if (userData) {
         setIsLoggedIn(true);
@@ -32,13 +33,25 @@ const Login = ({navigation}) => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text>Login</Text>
-      <LoginForm/>
+    <TouchableOpacity
+      onPress={() => Keyboard.dismiss()}
+      style={{flex: 1}}
+      activeOpacity={1}
+    >
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.container}
+      >
+        <View style={styles.container}>
+          <Text>Login</Text>
+          <LoginForm/>
 
-      <Text>Register</Text>
-      <RegisterForm/>
-    </View>
+          <Text>Register</Text>
+          <RegisterForm/>
+        </View>
+      </KeyboardAvoidingView>
+    </TouchableOpacity>
+
   );
 };
 
