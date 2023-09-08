@@ -9,7 +9,6 @@ import {Alert} from 'react-native';
 const LoginForm = () => {
   const {postLogin} = useAuthentication();
   const {setIsLoggedIn, setUser} = useContext(MainContext);
-
   const {
     control,
     handleSubmit,
