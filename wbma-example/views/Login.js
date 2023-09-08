@@ -1,11 +1,12 @@
 import React, {useContext, useEffect} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity, KeyboardAvoidingView, Platform, Keyboard} from 'react-native';
+import {StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform, Keyboard} from 'react-native';
 import PropTypes from 'prop-types';
 import {MainContext} from '../contexts/MainContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useUser} from '../hooks/ApiHooks';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
+import {Card, Text} from '@rneui/themed';
 
 const Login = ({navigation}) => {
   // props is needed for navigation
@@ -33,6 +34,7 @@ const Login = ({navigation}) => {
   }, []);
 
   return (
+
     <TouchableOpacity
       onPress={() => Keyboard.dismiss()}
       style={{flex: 1}}
@@ -42,18 +44,16 @@ const Login = ({navigation}) => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.container}
       >
-        <View style={styles.container}>
           <Text>Login</Text>
           <LoginForm/>
-
           <Text>Register</Text>
           <RegisterForm/>
-        </View>
       </KeyboardAvoidingView>
     </TouchableOpacity>
 
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {

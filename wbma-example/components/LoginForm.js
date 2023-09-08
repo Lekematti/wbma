@@ -1,9 +1,9 @@
-import {View, Text, TextInput, Button} from 'react-native';
 import {useForm, Controller} from 'react-hook-form';
 import {useAuthentication} from '../hooks/ApiHooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useContext} from 'react';
 import {MainContext} from '../contexts/MainContext';
+import {Card, Input, Button, Text} from '@rneui/themed';
 
 const LoginForm = () => {
   const {postLogin} = useAuthentication();
@@ -36,14 +36,14 @@ const LoginForm = () => {
   };
 
   return (
-    <View>
+    <Card containerStyle={{ width: 300 }}>
       <Controller
         control={control}
         rules={{
           required: true,
         }}
         render={({field: {onChange, onBlur, value}}) => (
-          <TextInput
+          <Input
             placeholder="Username"
             onBlur={onBlur}
             onChangeText={onChange}
@@ -61,7 +61,7 @@ const LoginForm = () => {
           maxLength: 100,
         }}
         render={({field: {onChange, onBlur, value}}) => (
-          <TextInput
+          <Input
             placeholder="password"
             secureTextEntry
             onBlur={onBlur}
@@ -71,9 +71,8 @@ const LoginForm = () => {
         )}
         name="password"
       />
-
       <Button title="Submit" onPress={handleSubmit(logIn)} />
-    </View>
+    </Card>
   );
 };
 
