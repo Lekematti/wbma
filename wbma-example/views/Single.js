@@ -1,54 +1,29 @@
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {mediaUrl} from '../utils/app-config';
 import {StatusBar} from 'expo-status-bar';
+import {Card, Image, Text} from '@rneui/themed';
 
 const Single = ({route ,navigation}) => {
   //console.log('route params', route.params)
   const singleMedia = route.params
   return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.container}>
+      <SafeAreaView >
+       <Card>
           <Image
             style={{width: 100, height: 100, marginBottom: 5}}
             source={{uri: mediaUrl + singleMedia.filename}}
           />
-          <Text style={styles.text}>{singleMedia.title}</Text>
-          <Text style={styles.text}>{singleMedia.description}</Text>
-          <Text style={styles.text}>{singleMedia.user_id}</Text>
-          <Text style={styles.text}>{singleMedia.time_added}</Text>
-        </View>
+          <Text>{singleMedia.title}</Text>
+          <Text>{singleMedia.description}</Text>
+          <Text>{singleMedia.user_id}</Text>
+          <Text>{singleMedia.time_added}</Text>
         <StatusBar style="auto"/>
+       </Card>
         </SafeAreaView>
-
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    borderRadius: 20,
-    marginTop: 100,
-    marginBottom: 100,
-    marginLeft: 10,
-    marginRight: 10,
-    padding: 10,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    alignContent: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    flexWrap: 'wrap',
-    margin: 5,
-    padding: 10,
-    borderRadius: 10,
-    backgroundColor: '#a5a5a5',
-    color: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 Single.prototype = {
   route: PropTypes.object,
