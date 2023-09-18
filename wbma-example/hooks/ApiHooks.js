@@ -9,7 +9,9 @@ const useMedia = (update) => {
 
   const loadMedia = async () => {
     try {
+      // all mediafiles
       // const json = await doFetch(apiUrl + 'media');
+      // files with specific appId
       const json = await doFetch(apiUrl + 'tags/' + appId);
       // console.log(json);
       const mediaFiles = await Promise.all(
@@ -107,7 +109,17 @@ const useUser = () => {
     }
   };
 
-  return {getUserByToken, postUser, checkUsername, putUser};
+  const getUserById = async (id, token) => {
+    const options = {
+      method: 'GET',
+      headers: {
+        'x-access-token': token,
+      },
+    };
+    return await doFetch(apiUrl + 'users/' + id, options);
+  };
+
+  return {getUserByToken, postUser, checkUsername, putUser, getUserById};
 };
 
 const useTag = () => {
